@@ -1,0 +1,27 @@
+<h3>View All Subscription</h3>
+
+<table class="table table-bordered table-hover table-striped">
+  <tr>
+    <th class="w-small">ID</th>
+    <th>User Name</th>
+    <th>Channel Name</th>
+    <th colspan="3" class="w-med">Details</th>
+  </tr>
+  <% @subscriptions.each do |subscription|%>
+  <tr>
+
+    <td class="w-small"><%= subscription.id%></td>
+    <td><%= subscription.user.first_name %> <%= subscription.user.last_name %></td>
+    <td><%= subscription.channel.name %></td>
+
+    <td><a href="/subscriptions/<%= subscription.id %>"><span class="glyphicon glyphicon-folder-open"></span></a></td>
+
+  </tr>
+  <% end %>
+</table>
+
+
+<div class="digg_pagination">
+  <%= will_paginate @subscriptions, renderer: BootstrapPagination::Sinatra %>
+  <%#= will_paginate @subscriptions %>
+</div>

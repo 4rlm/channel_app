@@ -1,0 +1,29 @@
+<h3>View All Channel</h3>
+
+<table class="table table-bordered table-hover table-striped">
+  <tr>
+    <th class="w-small">ID</th>
+    <th>Name</th>
+    <th>Callsign</th>
+    <th>Price Per Month</th>
+    <th>Subscribers</th>
+    <th colspan="3" class="w-med">Details</th>
+  </tr>
+  <% @channels.each do |channel|%>
+  <tr>
+    <td class="w-small"><%= channel.id%></td>
+    <td><%= channel.name %></td>
+    <td><%= channel.callsign %></td>
+    <td><%= channel.price_per_month %></td>
+    <td><%= channel.subscriptions.count %></td>
+
+    <td><a href="/channels/<%= channel.id %>"><span class="glyphicon glyphicon-folder-open"></span></a></td>
+
+  </tr>
+  <% end %>
+</table>
+
+<div class="digg_pagination">
+  <%= will_paginate @channels, renderer: BootstrapPagination::Sinatra %>
+  <%#= will_paginate @channels %>
+</div>

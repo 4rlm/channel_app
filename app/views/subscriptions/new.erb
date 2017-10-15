@@ -1,0 +1,16 @@
+<div class="">
+
+  <div class="erb_header">
+    <h3>Create New Subscription</h3>
+  </div>
+
+  <form class="form-horizontal" action="/subscriptions" method="post">
+
+    <!-- ## Form content moved to partial (_form_fields.erb) -->
+    <%= erb :'subscriptions/_form_fields'%>
+
+    <button class="btn btn-success" name="commit" type="submit">Submit New Subscription</button>
+  </form>
+
+</div>
+
